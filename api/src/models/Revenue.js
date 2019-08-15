@@ -11,6 +11,10 @@ const RevenueSchema = new Schema({
         required:true
     }],
 
+    image:{
+        type:String
+    },
+
     category:{
         type:String,
         required:true

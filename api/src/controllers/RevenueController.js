@@ -4,9 +4,7 @@ module.exports = {
     async store(req, res){
         try{
             const { title, ingredients, category, price } = req.body;
-
             const revenueExists = await Revenue.findOne({ title : title });
-
             if(revenueExists) return res.json({message : "Receita já existe!"});
             
             const revenue = await Revenue.create({
@@ -25,14 +23,21 @@ module.exports = {
     },
 
     async index(req,res){
-        const revenues = await Revenue.find();
 
+        const revenues = await Revenue.find();
         return res.status(200).json(revenues);
     },
 
     async indexById(req, res){
+
         const revenue = await Revenue.findById(req.params.id);
         return res.status(200).json(revenue); 
+    },
+
+    async update(req,res){
+
+        const revenue = await Revenue.update({_id:req.params.id}, req.body);
+        return res.json(revenue);
     },
 
     async delete(req,res){
