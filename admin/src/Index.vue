@@ -1,11 +1,7 @@
 <template>
    <div>
-        <div class="">
-            <Sidebar/>
-        </div>
-        <div class="receitas">
-            <Pratos/>
-        </div>
+        <Sidebar/>
+        <Pratos/>
    </div>
 </template>
 
@@ -23,12 +19,6 @@
 
 <style>
 
-.receitas{
-    flex:1;
-    justify-content: "center";
-    align-items: "center";
-    align-content: center
-}
 
 
 </style>

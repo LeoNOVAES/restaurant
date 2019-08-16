@@ -1,18 +1,17 @@
 <template>
-   <div class="wrapper">
-        <!-- Sidebar -->
+ <div class="wrapper">
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>Painel ADMIN</h3>
-            </div>
-            
+            </div>  
             <ul class="list-unstyled components">
                 <p>MENU</p>
                 <li>
-                    <a href="pratos">Pratos</a>
+                    <a href="home">Home</a>
                 </li>
+        
                 <li>
-                    <a href="chat">Mensagens</a>
+                    <a href="filmes">Filmes</a>
                 </li>
                 <li>
                     <a href="sair">Sair</a>
@@ -27,6 +26,8 @@
 </script>
 
 <style>
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 
@@ -50,6 +51,7 @@ a, a:hover, a:focus {
 }
 
 #sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
     background: #000000;
     color: #fff;
     transition: all 0.3s;
@@ -74,14 +76,15 @@ a, a:hover, a:focus {
     font-size: 1.1em;
     display: block;
 }
-
 #sidebar ul li a:hover {
     color: #000000;
     background: #fff;
 }
 
+
+
 .wrapper{
-    position:absolute;
+    flex:1;
     width: 100%;
     align-items: stretch;   
     max-height: 50px !important;
@@ -148,4 +151,5 @@ a[data-toggle="collapse"] {
     max-height: 10500px;
     transform-origin: center left; /* Set the transformed position of sidebar to center left side. */
 }
+
 </style>
