@@ -36,7 +36,7 @@ module.exports = {
 
     async index(req,res){
 
-        const revenues = await Revenue.find();
+        const revenues = await Revenue.find().sort({ createdAt:'DESC' });
         return res.status(200).json(revenues);
     },
 
@@ -55,7 +55,7 @@ module.exports = {
     async delete(req,res){
 
         const revenue = await Revenue.findById({ _id:req.params.id });
-        await Revenue.findOneAndDelete({ _id:req.params.id });
+        await Revenue.findOneAndRemove({ _id:req.params.id });
         const path = "./src/static/revenue/"+revenue.image+".jpg";
         
         fs.unlink( path ,(err)=>{
