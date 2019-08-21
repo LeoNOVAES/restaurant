@@ -7,14 +7,10 @@
             <ul class="list-unstyled components">
                 <p>MENU</p>
                 <li>
-                    <a href="home">Home</a>
-                </li>
-        
-                <li>
-                    <a href="filmes">Filmes</a>
+                    <a href="home">chat</a>
                 </li>
                 <li>
-                    <a href="sair">Sair</a>
+                    <a href="#" @click="handlerLogoff">Sair</a>
                 </li>
             </ul>
         </nav>
@@ -22,7 +18,14 @@
 </template>
 
 <script>
-
+    export default{
+        methods:{
+            handlerLogoff(){
+                localStorage.clear();
+                window.location.reload();
+            }
+        }
+    }
 </script>
 
 <style>

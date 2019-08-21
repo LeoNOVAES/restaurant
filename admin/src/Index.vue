@@ -1,18 +1,16 @@
 <template>
    <div>
-        <Sidebar/>
-        <Pratos/>
+        <Login/>
    </div>
 </template>
 
 <script>
-    import Sidebar from "@/components/Sidebar";
-    import  Pratos from "@/components/Pratos";
+    import Login from "@/components/Login";
+    
 
     export default{
         components:{
-            Sidebar,
-            Pratos
+          Login
         }
     }
 </script>

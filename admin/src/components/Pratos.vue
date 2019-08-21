@@ -24,7 +24,7 @@
                     <button @click="handlerIngredientes" style="margin-bottom:10px;margin-top:10px" class="btn btn-dark">Adiconar Ingrediente</button>
                     <p>Você pode adicionar Quantos ingredientes desejar!</p>
                     <div v-if="ingredientes" >
-                        <p v-for="(i, key) in ingredientes" :key="key"> {{ i }} </p>
+                        <p v-for="(i, key) in ingredientes" :key="key"> <button @click="deleteIngrediente(i)" class="btn btn-default" >x</button> {{ i }} </p>
                     </div>        
                     <input type="text"  v-model="ingrediente" class="form-control i" placeholder="Ingrediente">     
                 </div>
@@ -88,7 +88,11 @@ import Modal from "@/components/ModalEditPrato.vue";
             },
 
             async getRevenues(){
-                const req = await fetch("http://localhost:3333/api/revenues");
+                const req = await fetch("http://localhost:3333/api/revenues",{
+                    headers:{
+                        "Authorization":localStorage.getItem("token")
+                    }
+                });
                 
                 this.$data.revenues = await req.json();            
             },
@@ -108,6 +112,9 @@ import Modal from "@/components/ModalEditPrato.vue";
 
                 const req = await fetch("http://localhost:3333/api/revenue",{
                         method:"POST",
+                        headers:{
+                            "Authorization":localStorage.getItem("token")
+                        },
                         body:form
                     }
                 );
@@ -116,10 +123,11 @@ import Modal from "@/components/ModalEditPrato.vue";
                 location.reload();
             },
 
-         
-
             async handlerDelete(id){
                 const req = await fetch(`http://localhost:3333/api/revenue/${id}`,{
+                    headers:{
+                        "Authorization":localStorage.getItem("token")
+                    },
                     method:"DELETE"
                 });
 
@@ -129,6 +137,15 @@ import Modal from "@/components/ModalEditPrato.vue";
 
                 const res = await req.json();
                 console.log(res)
+            },
+
+            deleteIngrediente(i){
+                if(this.$data.ingredientes.indexOf(this.$data.ingrediente) > -1){
+                    this.$data.ingredientes = this.$data.ingredientes.filter(e =>{
+                        return e != i;
+                    });
+                }
+
             }
         }
     }
