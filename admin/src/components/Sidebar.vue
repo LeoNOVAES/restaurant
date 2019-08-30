@@ -6,8 +6,12 @@
             </div>  
             <ul class="list-unstyled components">
                 <p>MENU</p>
+                 
                 <li>
-                    <a href="home">chat</a>
+                    <a href="#/home">Home</a>
+                </li>
+                <li>
+                    <a href="#/chat">Mensagens</a>
                 </li>
                 <li>
                     <a href="#" @click="handlerLogoff">Sair</a>

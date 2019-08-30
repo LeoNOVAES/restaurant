@@ -66,7 +66,6 @@ export default{
 
             const res = await req.json();
             localStorage.setItem("token",res.token)
-            console.log(res)
             location.href = "#/home";
          }
     }
