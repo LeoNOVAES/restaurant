@@ -14,7 +14,7 @@
     "crypto": "^1.0.1",
     "cryptr": "^4.0.2",
     "firebase": "^6.4.1",
-    "firebase-admin": "^8.4.0",
+    "firebase-admin": "^11.4.1",
     "http2": "^3.3.7",
     "reverse-md5": "0.0.4",
     "vue": "^2.6.10",
